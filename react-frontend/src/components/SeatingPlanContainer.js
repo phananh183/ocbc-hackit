@@ -2,10 +2,12 @@ import React from 'react'
 import SeatingPlan from './SeatingPlan'
 import { useState } from 'react'
 import { getUrl } from '../utils'
+import { useSetPageError } from '../hooks/useSetPageError'
 
 // SeatingPlanContainer is a component that contains the seating plan itself, with the screen and reset database button
 // SelectedSeat is again passed down as a prop to SeatingPlan component
 const SeatingPlanContainer = ({selectedSeat, setSelectedSeat }) => {
+    const { setPageError } = useSetPageError();
 
     const [row, setrow] = useState(0)  //input field for number of rows to reset database
     const [col, setcol] = useState(0)              //input field for number of columns to reset database
@@ -24,6 +26,9 @@ const SeatingPlanContainer = ({selectedSeat, setSelectedSeat }) => {
             body: JSON.stringify({'row': row, 'col': col})
         })
         .then(response => console.log(response))
+        .catch(e => {
+            setPageError(true)
+        })
         window.location.reload(true)
     }
 

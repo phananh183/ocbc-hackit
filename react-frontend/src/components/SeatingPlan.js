@@ -1,10 +1,12 @@
 import React from 'react'
 import Seat from './Seat'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { getUrl } from '../utils'
+import { useSetPageError } from '../hooks/useSetPageError'
 
 
 const SeatingPlan = ({selectedSeat, setSelectedSeat}) => {
+    const { setPageError } = useSetPageError();
 
     // seatStaus, row and col are states, whose values are taken from a API call to the database through "api/get_seats_status"
     // row and col is used to form the grid of the seats in table format
@@ -23,6 +25,10 @@ const SeatingPlan = ({selectedSeat, setSelectedSeat}) => {
                 setCol(response.data.col)
             }
         )
+        .catch(e => {
+            setPageError(true)
+        })
+        // eslint-disable-next-line
     }, [])
 
     const arrayRow = [...Array(row).keys()] //to produce a array of numbers corresponding to no. of rows, [0,1,2,3,...,n]

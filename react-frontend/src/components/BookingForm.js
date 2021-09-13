@@ -1,8 +1,10 @@
 import React from 'react'
 import {useState} from 'react'
 import { getUrl } from '../utils'
+import { useSetPageError } from '../hooks/useSetPageError'
 
 const BookingForm = ({selectedSeat}) => {
+    const { setPageError } = useSetPageError();
 
     const parsedSeat = selectedSeat.split('-') //Parse selectedSeat into "A1" "B2" format to display as it is currently "0-1", "2-0"
 
@@ -49,6 +51,9 @@ const BookingForm = ({selectedSeat}) => {
                 window.location.reload(true)
             }
         }))
+        .catch(e => {
+            setPageError(true)
+        })
     }
 
     //To render input fields for customer info and confirm booking button
