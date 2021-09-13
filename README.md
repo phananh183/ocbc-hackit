@@ -35,3 +35,9 @@ Open the `spring-backend` folder in your IDE, and run `./mvnw spring-boot:run` f
 
 ## Front End 
 Navigate inside `react-frontend` and run `npm install` to install all required node modules, and then run `npm start` for local development server. React app should be running on `localhost:3000`.
+
+> If you are running Spring Boot server on `localhost:8080`, run:
+>
+> `REACT_APP_USE_LOCAL_SERVER=true npm start`
+> 
+> to use API for local Spring Boot server

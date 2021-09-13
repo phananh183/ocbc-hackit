@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import { getUrl } from '../utils'
 
 const BookingForm = ({selectedSeat}) => {
 
@@ -28,7 +29,7 @@ const BookingForm = ({selectedSeat}) => {
         }
         
         //If all input fields are satisfied, call API endpoint to book the seat
-        fetch("http://13.251.49.123:8080/api/book", {
+        fetch(getUrl("/api/book"), {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({'id': selectedSeat})
