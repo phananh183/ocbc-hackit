@@ -12,14 +12,21 @@ Requirements:
 * Gradle 4+ or Maven 3.2+
 * IntelliJ IDEA (or equivalent IDE)
 
-**Create new database**
+### Create new database
 
-Type the following command in terminal `$ sudo mysql --password` to connect to MySQL
+Type the following command in terminal `$ sudo mysql --password` to connect to MySQL.  
 
-Inside MySQL prompt:
+Inside MySQL prompt: 
 
 * `mysql> create database db_example;` -- Creates the new database
 * `mysql> create user 'springuser'@'%' identified by 'ThePassword';` -- Creates the user
 * `mysql> grant all on db_example.* to 'springuser'@'%';` -- Gives all privileges to the new user on the newly created database
 
+Navigate into `spring-backend/src/main/resources/application.properties` and make sure that the content is as follows: 
 
+`spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+spring.datasource.username=springuser
+spring.datasource.password=ThePassword
+spring.datasource.driver-class-name =com.mysql.jdbc.Driver
+#spring.jpa.show-sql: true`
