@@ -24,8 +24,12 @@ Inside MySQL prompt:
 
 Navigate into `spring-backend/src/main/resources/application.properties` and make sure that the content is as follows: 
 
-```spring.jpa.hibernate.ddl-auto=update
+```
+spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
 spring.datasource.username=springuser 
 spring.datasource.password=ThePassword
-spring.datasource.driver-class-name =com.mysql.jdbc.Driver```
+spring.datasource.driver-class-name =com.mysql.jdbc.Driver
+``` 
+Open the `spring-backend` folder in your IDE, and run `./mvnw spring-boot:run` for Maven or `./gradlew bootRun` for Gradle
+
