@@ -31,5 +31,7 @@ spring.datasource.username=springuser
 spring.datasource.password=ThePassword
 spring.datasource.driver-class-name =com.mysql.jdbc.Driver
 ``` 
-Open the `spring-backend` folder in your IDE, and run `./mvnw spring-boot:run` for Maven or `./gradlew bootRun` for Gradle. The Spring application should be running on localhost:8080. The list of available API routes are in `react-frontend/api.md`   
+Open the `spring-backend` folder in your IDE, and run `./mvnw spring-boot:run` for Maven or `./gradlew bootRun` for Gradle. The Spring application should be running on `localhost:8080`. The list of available API routes are in `react-frontend/api.md`, all of which are implemented in `MainController.java`. 
 
+## Front End 
+Navigate inside `react-frontend` and run `npm install` to install all required node modules, and then run `npm start` for local development server. React app should be running on `localhost:3000`.
